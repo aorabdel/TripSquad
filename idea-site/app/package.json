@@ -1,0 +1,19 @@
+{
+  "name": "idea-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "react-markdown": "^9",
+    "remark-gfm": "^4"
+  },
+  "devDependencies": {
+    "vite": "^5",
+    "@vitejs/plugin-react": "^4"
+  }
+}
