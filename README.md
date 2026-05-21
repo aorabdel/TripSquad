@@ -8,10 +8,13 @@ TripSquad replaces the 5-app stack (WhatsApp + Google Docs + Splitwise + Google 
 
 **Pre-product.** Currently in the design and validation phase. No code yet.
 
+**Verdict: CONDITIONAL GO** — viable idea targeting a real pain point, but three assumptions must be validated before committing significant resources.
+
 | Version | Viability Score | Status |
 |---------|:--------------:|--------|
 | [V1 — AI Trip Planner](docs/01-V1/01-idea.md) | 38/100 | Shelved. AI-first vision had fatal bootstrapping risks. |
-| [V2 — TripSquad](docs/02-V2/01-idea.md) | [68/100](docs/02-V2/Startup%20Design/06-validation/scorecard.md) | Active. Group-coordination-first pivot. |
+| [V2 — TripSquad](docs/02-V2/01-idea.md) | [68/100](docs/02-V2/startup_design/06-validation/scorecard.md) | Active. Group-coordination-first pivot. |
+| [V2 — Standalone Viability](docs/02-V2/04-viability_report_standalone.md) | 64/100 | Independent assessment. Harder on competition & unit economics. |
 
 ## The Idea
 
@@ -27,6 +30,24 @@ TripSquad replaces the 5-app stack (WhatsApp + Google Docs + Splitwise + Google 
 Pin City → Famous Places Feed → Shortlist → Vote → Timeline → Go → Photos → Share
 ```
 
+## Key Risks (from Viability Report)
+
+| # | Risk | Severity |
+|---|------|----------|
+| 1 | **Group adoption barrier** — getting 6-8 friends to adopt a new app for something they do 3-6x/year | Critical |
+| 2 | **Competitive convergence** — 8-10 direct competitors already target group-first planning (WePlanify, FlowTrip, SquadTrip, etc.) | Major |
+| 3 | **Low share rate** — growth model depends on >10% of completed trips being shared publicly | Critical |
+| 4 | **Name collision** — "TripSquad" is dangerously close to existing competitor "SquadTrip" | Major |
+| 5 | **Unit economics** — $39/year organizer-pays needs ~270K free users to reach sustainability | Critical |
+
+**Red flags:** The "group voting + shortlists" differentiator is already offered by multiple competitors. The true whitespace is **post-trip photo sync + shareable artifacts** — no competitor does collaborative group photo aggregation tied to an itinerary. This should be elevated to the core thesis.
+
+## Conditions for GO
+
+1. **Validate group adoption** — Can 5 real friend groups plan a trip through the app with >50% member participation?
+2. **Validate sharing behavior** — Will >10% of completed trips be shared publicly?
+3. **Resolve competitive positioning** — Double down on photo-to-artifact pipeline as the wedge, not planning features alone.
+
 ## Repo Structure
 
 ```
@@ -41,18 +62,29 @@ ai-trip-planner/
 │   │
 │   └── 02-V2/                        # V2: TripSquad (active)
 │       ├── 01-idea.md                #   Idea document
-│       ├── 05-pitch-2min.md          #   2-min pitch
-│       ├── 06-pitch-full.md          #   Full pitch narrative
-│       ├── 07-pitch-appendix.md      #   Investor Q&A prep
+│       ├── 02-verification-report.md #   Idea verification
+│       ├── 03-viability-report.md    #   Viability report (from startup design)
+│       ├── 04-viability_report_standalone.md  # Independent viability (64/100)
+│       ├── 05-pitch-scorecard.md     #   Pitch evaluation rubric
+│       ├── 06-pitch-2min.md          #   2-min pitch
+│       ├── 07-pitch-full.md          #   Full pitch narrative
+│       ├── 08-pitch-appendix.md      #   Investor Q&A prep
+│       ├── 09-intake.md              #   Project intake brief
 │       │
-│       ├── Pitch raw/                #   Raw pitch research
+│       ├── pitch_raw/                #   Raw pitch research
 │       │
-│       └── Startup Design/           #   Viability assessment (Fast Track)
-│           ├── 00-intake/            #     Brief + brainstorm
-│           ├── 01-discovery/         #     Market analysis + competitor landscape
-│           ├── 02-strategy/          #     Lean canvas
-│           ├── 05-financial/         #     Revenue model + projections
-│           └── 06-validation/        #     Viability scorecard (68/100)
+│       ├── startup_design/           #   Viability assessment (Fast Track)
+│       │   ├── 00-intake/            #     Brief + brainstorm
+│       │   ├── 01-discovery/         #     Market analysis + competitor landscape
+│       │   ├── 02-strategy/          #     Lean canvas
+│       │   ├── 05-financial/         #     Revenue model + projections
+│       │   └── 06-validation/        #     Viability scorecard (68/100)
+│       │
+│       └── tripsquad-competitors/    #   Competitive intelligence
+│           ├── competitors-report.md #     Full competitor profiles
+│           ├── competitive-matrix.md #     Feature comparison matrix
+│           ├── pricing-landscape.md  #     Pricing analysis
+│           └── battle-cards/         #     Per-competitor battle cards
 │
 └── idea-site/                        # Interactive proposal site (React)
     └── app/
@@ -63,13 +95,17 @@ ai-trip-planner/
 | Document | Path |
 |----------|------|
 | V2 Idea | [`docs/02-V2/01-idea.md`](docs/02-V2/01-idea.md) |
-| Viability Report (68/100) | [`docs/02-V2/Startup Design/06-validation/scorecard.md`](docs/02-V2/Startup%20Design/06-validation/scorecard.md) |
-| Lean Canvas | [`docs/02-V2/Startup Design/02-strategy/lean-canvas.md`](docs/02-V2/Startup%20Design/02-strategy/lean-canvas.md) |
-| Revenue Model | [`docs/02-V2/Startup Design/05-financial/revenue-model.md`](docs/02-V2/Startup%20Design/05-financial/revenue-model.md) |
-| Market Analysis | [`docs/02-V2/Startup Design/01-discovery/market-analysis.md`](docs/02-V2/Startup%20Design/01-discovery/market-analysis.md) |
-| Competitor Landscape | [`docs/02-V2/Startup Design/01-discovery/competitor-landscape.md`](docs/02-V2/Startup%20Design/01-discovery/competitor-landscape.md) |
-| Full Pitch | [`docs/02-V2/06-pitch-full.md`](docs/02-V2/06-pitch-full.md) |
-| 2-Min Pitch | [`docs/02-V2/05-pitch-2min.md`](docs/02-V2/05-pitch-2min.md) |
+| Standalone Viability Report (64/100) | [`docs/02-V2/04-viability_report_standalone.md`](docs/02-V2/04-viability_report_standalone.md) |
+| Startup Design Scorecard (68/100) | [`docs/02-V2/startup_design/06-validation/scorecard.md`](docs/02-V2/startup_design/06-validation/scorecard.md) |
+| Lean Canvas | [`docs/02-V2/startup_design/02-strategy/lean-canvas.md`](docs/02-V2/startup_design/02-strategy/lean-canvas.md) |
+| Revenue Model | [`docs/02-V2/startup_design/05-financial/revenue-model.md`](docs/02-V2/startup_design/05-financial/revenue-model.md) |
+| Market Analysis | [`docs/02-V2/startup_design/01-discovery/market-analysis.md`](docs/02-V2/startup_design/01-discovery/market-analysis.md) |
+| Competitor Landscape | [`docs/02-V2/startup_design/01-discovery/competitor-landscape.md`](docs/02-V2/startup_design/01-discovery/competitor-landscape.md) |
+| Competitor Intelligence | [`docs/02-V2/tripsquad-competitors/competitors-report.md`](docs/02-V2/tripsquad-competitors/competitors-report.md) |
+| Pricing Landscape | [`docs/02-V2/tripsquad-competitors/pricing-landscape.md`](docs/02-V2/tripsquad-competitors/pricing-landscape.md) |
+| Full Pitch | [`docs/02-V2/07-pitch-full.md`](docs/02-V2/07-pitch-full.md) |
+| 2-Min Pitch | [`docs/02-V2/06-pitch-2min.md`](docs/02-V2/06-pitch-2min.md) |
+| Pitch Appendix (Investor Q&A) | [`docs/02-V2/08-pitch-appendix.md`](docs/02-V2/08-pitch-appendix.md) |
 
 ## V1 to V2 Pivot
 
@@ -90,6 +126,16 @@ V1 scored 38/100 — an AI-first, full-lifecycle vision with 7 red flags. V2 fix
 | Week 4 | <3/5 friend groups use invite link | Stop |
 | Week 8 | <40% member voting participation | Pivot |
 | Month 4 | <2% organizer conversion | Reprice |
+
+## Next Steps (from Viability Report)
+
+| # | Experiment | Tests | Cost | Time |
+|---|-----------|-------|------|------|
+| 1 | Landing page with "Plan your next group trip" CTA | Email signup conversion, messaging resonance | $200 | 1 week |
+| 2 | Fake door test: "Clone this trip" on a sample trip page | Would viewers actually clone? | $0 | 1 week |
+| 3 | Interview 15 "organizer friends" about their last group trip | Pain validation, WTP, feature priority | $0 | 2 weeks |
+| 4 | Prototype the invite flow (Figma) and test with 3 friend groups | Group adoption friction, auth wall impact | $0 | 2 weeks |
+| 5 | Concierge MVP: manually help 5 groups plan trips | End-to-end validation, photo sharing behavior | $0 | 4 weeks |
 
 ## Tech Stack (Planned)
 
