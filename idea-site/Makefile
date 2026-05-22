@@ -26,11 +26,16 @@ $(MANIFEST): $(shell find $(DOCS_DIR) -name '*.md' 2>/dev/null)
 	@echo "📄 Generating docs manifest..."
 	@python3 gen-manifest.py $(DOCS_DIR) $@
 
-serve:
-	@test -f $(DIST_DIR)/index.html || { echo "Run 'make build' first"; exit 1; }
-	@echo "🌐 Serving at http://localhost:8080"
-	@python3 -m http.server -d $(DIST_DIR) 8080
-
+serve: $(MANIFEST)
+	@docker run --rm -it --init \
+		-v "$$(pwd)/$(APP_DIR):/workspace/app:ro" \
+		-p 8080:8080 \
+		$(IMAGE) sh -c '\
+			cp -r /workspace/app /tmp/dev && \
+			cd /tmp/dev && \
+			npm install --silent 2>&1 | tail -1 && \
+			exec npx vite --host --port 8080 \
+		'
 clean:
 	rm -rf $(DIST_DIR)
 	rm -f $(MANIFEST)
