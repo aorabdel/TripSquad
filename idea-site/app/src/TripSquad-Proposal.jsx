@@ -336,6 +336,7 @@ export default function TripSquadProposal() {
             display: "flex",
             gap: "0",
             padding: "0 16px",
+            justifyContent: "center",
           }}
         >
           {sections.map((s) => (
