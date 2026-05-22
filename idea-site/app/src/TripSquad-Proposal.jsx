@@ -333,8 +333,6 @@ export default function TripSquadProposal() {
       >
         <div
           style={{
-            maxWidth: "800px",
-            margin: "0 auto",
             display: "flex",
             gap: "0",
             padding: "0 16px",
